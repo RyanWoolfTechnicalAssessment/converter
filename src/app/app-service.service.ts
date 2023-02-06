@@ -11,6 +11,6 @@ export class AppServiceService {
 
   getData(){
     console.log('in getData');
-    return this.http.get('http://measurementconverter-env.eba-j8en5ihn.ap-northeast-1.elasticbeanstalk.com/api/measure-units?measurementType=temperature-type&measurementAmount=15.5&measurementSystemFrom=imperial');
+    return this.http.get('https://www.ryanwoolftechnicalassessment/api/measure-units?measurementType=temperature-type&measurementAmount=15.5&measurementSystemFrom=imperial');
   }
 }
