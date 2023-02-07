@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IResponse } from './response.interface';
 
 
 @Injectable({
@@ -9,8 +10,8 @@ export class AppServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getData(){
+  getData(measurementType:string = '',measurementAmount:number,measurementSystemFrom:string = ''){
     console.log('in getData');
-    return this.http.get('https://www.ryanwoolftechnicalassessment.co.za/api/measure-units?measurementType=temperature-type&measurementAmount=15.5&measurementSystemFrom=imperial');
+    return this.http.get<IResponse>(`http://localhost:8080/api/measure-units?measurementType=${measurementType}&measurementAmount=${measurementAmount}&measurementSystemFrom=${measurementSystemFrom}`);
   }
 }

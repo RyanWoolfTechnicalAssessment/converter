@@ -1,1 +1,21 @@
-<p>Hello Ryan</p>
+<div style="padding-left:20px">
+    <h1>Measurement Conversions</h1>
+    <div style="padding-bottom: 15px;">
+        <select  [(ngModel)]="conversionType">
+            <option *ngFor="let conv of conversions" value="{{conv.conversionIdentifier}}">{{conv.description}}</option>
+        </select>
+    </div>
+    
+    <div style="padding-bottom: 15px;">
+        <input [(ngModel)]="amountToConvert" type="number" name="amountToConvert" value="0">
+    </div>
+        
+    <div style="padding-bottom: 15px;">
+        <button (click)="getDataFromAPI()">Calculate</button>
+    </div>
+    
+    <div>
+        <h1>Answer {{answer}}</h1>
+    </div>
+    
+</div>
