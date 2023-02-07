@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   {conversionIdentifier: 3,description: 'Distance - miles to kilometers',measurementType: KILOMETER_MILES,measurementSystemFrom: SYSTEM_IMPERIAL},
   {conversionIdentifier: 4,description: 'Distance - kilometers to miles',measurementType: KILOMETER_MILES,measurementSystemFrom: SYSTEM_METRIC},
   {conversionIdentifier: 5,description: 'Weight - pounds to kilograms',measurementType: KILOGRAM_POUNDS,measurementSystemFrom: SYSTEM_IMPERIAL},
-  {conversionIdentifier: 6,description: 'Weight - kilograms to pounds',measurementType: KILOGRAM_POUNDS,measurementSystemFrom: SYSTEM_IMPERIAL}
+  {conversionIdentifier: 6,description: 'Weight - kilograms to pounds',measurementType: KILOGRAM_POUNDS,measurementSystemFrom: SYSTEM_METRIC}
 
 ]
   
