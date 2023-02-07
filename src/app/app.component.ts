@@ -3,6 +3,7 @@ import { AppServiceService } from './app-service.service';
 import { IConversions } from './conversions.interface';
 import { IResponse } from './response.interface';
 import { FormsModule } from '@angular/forms';
+import { TEMPERATURE, KILOMETER_MILES, KILOGRAM_POUNDS, SYSTEM_METRIC, SYSTEM_IMPERIAL } from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   title = 'converter';
-  public conversions:Array<IConversions> = [{conversionIdentifier: 1,description: 'Temperature - fahreinheit to degrees celsius',measurementType: 'temperature',measurementSystemFrom: 'imperial'},{conversionIdentifier: 2,description: 'Temperature - degrees celsius to fahreinheit',measurementType: 'temperature',measurementSystemFrom: 'metric'}]
+  public conversions:Array<IConversions> = [{conversionIdentifier: 1,description: 'Temperature - fahreinheit to degrees celsius',measurementType: TEMPERATURE,measurementSystemFrom: SYSTEM_IMPERIAL},
+  {conversionIdentifier: 2,description: 'Temperature - degrees celsius to fahreinheit',measurementType: TEMPERATURE,measurementSystemFrom: SYSTEM_METRIC},
+  {conversionIdentifier: 3,description: 'Distance - miles to kilometers',measurementType: KILOMETER_MILES,measurementSystemFrom: SYSTEM_IMPERIAL},
+  {conversionIdentifier: 4,description: 'Distance - kilometers to miles',measurementType: KILOMETER_MILES,measurementSystemFrom: SYSTEM_METRIC},
+  {conversionIdentifier: 5,description: 'Weight - pounds to kilograms',measurementType: KILOGRAM_POUNDS,measurementSystemFrom: SYSTEM_IMPERIAL},
+  {conversionIdentifier: 6,description: 'Weight - kilograms to pounds',measurementType: KILOGRAM_POUNDS,measurementSystemFrom: SYSTEM_IMPERIAL}
+
+]
   
   public conversionIdentifier:number = 1;
   public answer:number = 0;
