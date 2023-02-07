@@ -1,28 +1,28 @@
 # Test cases
 
-Temperature - Fahrenheit to degrees celsius 65 = 18.33 Evaluated correct
-Temperature - Fahrenheit to degrees celsius 0 = -17.77 Evaluated correct
-Temperature - Fahrenheit to degrees celsius -5 = -20.55 Evaluated correct
-
-Temperature - Degrees celsius to fahrenheit 20 = 68 Evaluated correct
-Temperature - Degrees celsius to fahrenheit 0 = 32 Evaluated correct
-Temperature - Degrees celsius to fahrenheit -8 = 17.6 Evaluated correct
-
-Distance - miles to kilometers - 5 = 8.046 Evaluated correct
-Distance - miles to kilometers - 0 = 0 Evaluated correct
-Distance - miles to kilometers - -7 = -11.265 Evaluated correct
-
-Distance - kilometers to miles - 21 = 13.04 Evaluated correct
-Distance - kilometers to miles - 0 = 0 Evaluated correct
-Distance - kilometers to miles - -5 = -3.10 Evaluated correct
-
-Weight - pounds to kilograms, 17 = 7.7 Evaluated correct
-Weight - pounds to kilograms, 0 = 0 Evaluated correct
-Weight - pounds to kilograms, -3 = -1.36 Evaluated correct
-
-Weight - kilograms to pounds, 9.2 = 20.286 Evaluated correct
-Weight - kilograms to pounds, 0 = 0 Evaluated correct
-Weight - kilograms to pounds, -7 = -15.43 Evaluated correct
+Temperature - Fahrenheit to degrees celsius 65 = 18.33 Evaluated correct<br />
+Temperature - Fahrenheit to degrees celsius 0 = -17.77 Evaluated correct<br />
+Temperature - Fahrenheit to degrees celsius -5 = -20.55 Evaluated correct<br />
+<br />
+Temperature - Degrees celsius to fahrenheit 20 = 68 Evaluated correct<br />
+Temperature - Degrees celsius to fahrenheit 0 = 32 Evaluated correct<br />
+Temperature - Degrees celsius to fahrenheit -8 = 17.6 Evaluated correct<br />
+<br />
+Distance - miles to kilometers - 5 = 8.046 Evaluated correct<br />
+Distance - miles to kilometers - 0 = 0 Evaluated correct<br />
+Distance - miles to kilometers - -7 = -11.265 Evaluated correct<br />
+<br />
+Distance - kilometers to miles - 21 = 13.04 Evaluated correct<br />
+Distance - kilometers to miles - 0 = 0 Evaluated correct<br />
+Distance - kilometers to miles - -5 = -3.10 Evaluated correct<br />
+<br />
+Weight - pounds to kilograms, 17 = 7.7 Evaluated correct<br />
+Weight - pounds to kilograms, 0 = 0 Evaluated correct<br />
+Weight - pounds to kilograms, -3 = -1.36 Evaluated correct<br />
+<br />
+Weight - kilograms to pounds, 9.2 = 20.286 Evaluated correct<br />
+Weight - kilograms to pounds, 0 = 0 Evaluated correct<br />
+Weight - kilograms to pounds, -7 = -15.43 Evaluated correct<br />
 
 
 # Converter
