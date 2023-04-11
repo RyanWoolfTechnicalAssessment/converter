@@ -10,8 +10,9 @@ export class AppServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getData(measurementType:string = '',measurementAmount:number,measurementSystemFrom:string = ''){
+  getData(endPoint:string = '',measurementAmount:number,calculationId:number = 1){
     console.log('in getData');
-    return this.http.get<IResponse>(`https://www.ryanwoolftechnicalassessment.co.za/api/measure-units?measurementType=${measurementType}&measurementAmount=${measurementAmount}&measurementSystemFrom=${measurementSystemFrom}`);
+    // return this.http.get<IResponse>(`http://localhost:8080/api/${endPoint}?calculationId=${calculationId}&measurementAmount=${measurementAmount}`);
+    return this.http.get<IResponse>(`https://www.ryanwoolftechnicalassessment.co.za/api/${endPoint}?calculationId=${calculationId}&measurementAmount=${measurementAmount}`);
   }
 }

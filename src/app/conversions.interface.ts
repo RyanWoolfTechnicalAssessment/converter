@@ -1,6 +1,6 @@
 export interface IConversions{
     conversionIdentifier: number;
-    measurementType: string;
-    measurementSystemFrom: string;
+    calculationId: number;
+    conversionEndPoint: string;
     description:string;
 }
