@@ -3,7 +3,7 @@ import { AppServiceService } from './app-service.service';
 import { IConversions } from './conversions.interface';
 import { IResponse } from './response.interface';
 import { FormsModule } from '@angular/forms';
-import { TEMPERATURE_ENDPOINT, DISTANCE_ENDPOINT, WEIGHT_ENDPOINT, DISTANCE_KILOMETERS_TO_MILES, DISTANCE_MILES_TO_KILOMETERS,TEMPERATURE_CELSIUS_TO_FAHRENHEIT,TEMPERATURE_FAHRENHEIT_TO_CELSIUS, WEIGHT_KILOGRAMS_TO_POUNDS, WEIGHT_POUNDS_TO_KILOGRAMS } from './app.constants';
+import { TEMPERATURE_ENDPOINT, DISTANCE_ENDPOINT, WEIGHT_ENDPOINT, TEMPERATURE_DEGREES_CELSIUS,TEMPERATURE_FAHRENHEIT,TEMPERATURE_KELVINS,DISTANCE_KILOMETERS,DISTANCE_METERS,DISTANCE_MILES,WEIGHT_GRAMS,WEIGHT_KILOGRAMS,WEIGHT_POUNDS } from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,23 @@ import { TEMPERATURE_ENDPOINT, DISTANCE_ENDPOINT, WEIGHT_ENDPOINT, DISTANCE_KILO
 })
 export class AppComponent implements OnInit {
   title = 'converter';
-  public conversions:Array<IConversions> = [{conversionIdentifier: 1,description: 'Temperature - fahreinheit to degrees celsius',calculationId: TEMPERATURE_FAHRENHEIT_TO_CELSIUS,conversionEndPoint: TEMPERATURE_ENDPOINT},
-  {conversionIdentifier: 2,description: 'Temperature - degrees celsius to fahreinheit',calculationId: TEMPERATURE_CELSIUS_TO_FAHRENHEIT,conversionEndPoint: TEMPERATURE_ENDPOINT},
-  {conversionIdentifier: 3,description: 'Distance - miles to kilometers',calculationId: DISTANCE_MILES_TO_KILOMETERS,conversionEndPoint: DISTANCE_ENDPOINT},
-  {conversionIdentifier: 4,description: 'Distance - kilometers to miles',calculationId: DISTANCE_KILOMETERS_TO_MILES,conversionEndPoint: DISTANCE_ENDPOINT},
-  {conversionIdentifier: 5,description: 'Weight - pounds to kilograms',calculationId: WEIGHT_POUNDS_TO_KILOGRAMS,conversionEndPoint: WEIGHT_ENDPOINT},
-  {conversionIdentifier: 6,description: 'Weight - kilograms to pounds',calculationId: WEIGHT_KILOGRAMS_TO_POUNDS,conversionEndPoint: WEIGHT_ENDPOINT}
+  public conversions:Array<IConversions> = [{conversionIdentifier: 1,description: 'Temperature - fahreinheit to degrees celsius',fromUnit: TEMPERATURE_FAHRENHEIT,toUnit:TEMPERATURE_DEGREES_CELSIUS  ,conversionEndPoint: TEMPERATURE_ENDPOINT},
+  {conversionIdentifier: 3,description: 'Temperature - degrees celsius to fahreinheit',fromUnit: TEMPERATURE_DEGREES_CELSIUS,toUnit:TEMPERATURE_FAHRENHEIT,conversionEndPoint: TEMPERATURE_ENDPOINT},
+  {conversionIdentifier: 4,description: 'Temperature - degrees celsius to kelvins',fromUnit: TEMPERATURE_DEGREES_CELSIUS,toUnit:TEMPERATURE_KELVINS,conversionEndPoint: TEMPERATURE_ENDPOINT},
+  {conversionIdentifier: 5,description: 'Temperature - fahreinheit to kelvins',fromUnit: TEMPERATURE_FAHRENHEIT,toUnit:TEMPERATURE_KELVINS,conversionEndPoint: TEMPERATURE_ENDPOINT},
+  {conversionIdentifier: 6,description: 'Temperature - kelvins to degrees celsius',fromUnit: TEMPERATURE_KELVINS,toUnit:TEMPERATURE_DEGREES_CELSIUS,conversionEndPoint: TEMPERATURE_ENDPOINT},
+  {conversionIdentifier: 7,description: 'Distance - miles to kilometers',fromUnit: DISTANCE_MILES,toUnit:DISTANCE_KILOMETERS,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 8,description: 'Distance - kilometers to miles',fromUnit: DISTANCE_KILOMETERS,toUnit:DISTANCE_MILES,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 9,description: 'Distance - meters to miles',fromUnit: DISTANCE_METERS,toUnit:DISTANCE_MILES,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 10,description: 'Distance - meters to kilometers',fromUnit: DISTANCE_METERS,toUnit:DISTANCE_KILOMETERS,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 11,description: 'Distance - kilometers to meters',fromUnit: DISTANCE_KILOMETERS,toUnit:DISTANCE_METERS,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 12,description: 'Distance - miles to meters',fromUnit: DISTANCE_MILES,toUnit:DISTANCE_METERS,conversionEndPoint: DISTANCE_ENDPOINT},
+  {conversionIdentifier: 13,description: 'Weight - pounds to kilograms',fromUnit: WEIGHT_POUNDS,toUnit: WEIGHT_KILOGRAMS,conversionEndPoint: WEIGHT_ENDPOINT},
+  {conversionIdentifier: 14,description: 'Weight - kilograms to pounds',fromUnit: WEIGHT_KILOGRAMS,toUnit:WEIGHT_POUNDS,conversionEndPoint: WEIGHT_ENDPOINT},
+  {conversionIdentifier: 15,description: 'Weight - kilograms to grams',fromUnit: WEIGHT_KILOGRAMS,toUnit:WEIGHT_GRAMS,conversionEndPoint: WEIGHT_ENDPOINT},
+  {conversionIdentifier: 16,description: 'Weight - pounds to grams',fromUnit: WEIGHT_POUNDS,toUnit:WEIGHT_GRAMS,conversionEndPoint: WEIGHT_ENDPOINT},
+  {conversionIdentifier: 17,description: 'Weight - grams to kilograms',fromUnit: WEIGHT_GRAMS,toUnit:WEIGHT_KILOGRAMS,conversionEndPoint: WEIGHT_ENDPOINT},
+  {conversionIdentifier: 18,description: 'Weight - grams to pounds',fromUnit: WEIGHT_GRAMS,toUnit:WEIGHT_POUNDS,conversionEndPoint: WEIGHT_ENDPOINT}
 
 ]
   
@@ -37,11 +48,11 @@ export class AppComponent implements OnInit {
 
     var amountToConvertValue = this.amountToConvert || 0;
     var endPoint = this.conversions.find(item => item.conversionIdentifier==this.conversionType)?.conversionEndPoint;
-    var calculationId = this.conversions.find(item => item.conversionIdentifier==this.conversionType)?.calculationId;
-
+    var fromUnit = this.conversions.find(item => item.conversionIdentifier==this.conversionType)?.fromUnit;
+    var toUnit = this.conversions.find(item => item.conversionIdentifier==this.conversionType)?.toUnit;
     
  
-    this.service.getData(endPoint,amountToConvertValue,calculationId).subscribe((response => {
+    this.service.getData(endPoint,amountToConvertValue,fromUnit,toUnit).subscribe((response => {
       console.log('response:',response);
       this.answer = response.answer;
     }),((error => {

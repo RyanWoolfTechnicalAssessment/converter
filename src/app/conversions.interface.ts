@@ -1,6 +1,7 @@
 export interface IConversions{
     conversionIdentifier: number;
-    calculationId: number;
+    fromUnit: string;
+    toUnit: string;
     conversionEndPoint: string;
     description:string;
 }
